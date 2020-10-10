@@ -16,7 +16,9 @@ X[:, 1] = labelEncoder_X1.fit_transform(X[:, 1])
 labelEncoder_X2 = LabelEncoder()
 X[:, 2] = labelEncoder_X2.fit_transform(X[:, 2])
 
-
 # onehotencode X
 ct = ColumnTransformer([("Country", OneHotEncoder(),[1])], remainder="passthrough") 
 ct.fit_transform(X)
+
+# train and test split
+x_train, x_test, y_train, y_test = train_test_split(X, y, random_state = 0)
