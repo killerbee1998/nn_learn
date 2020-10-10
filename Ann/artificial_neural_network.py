@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+from sklearn.compose import ColumnTransformer 
 
 #import dataset and select x,y
 dataset = pd.read_csv("Churn_Modelling.csv")
@@ -13,3 +14,7 @@ labelEncoder_X1 = LabelEncoder()
 X[:, 1] = labelEncoder_X1.fit_transform(X[:, 1])
 labelEncoder_X2 = LabelEncoder()
 X[:, 2] = labelEncoder_X2.fit_transform(X[:, 2])
+
+# onehotencode X
+onehotencoder = OneHotEncoder(X[:, 1])
+X = onehotencoder.fit_transform(X).toarray()
