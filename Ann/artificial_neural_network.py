@@ -15,6 +15,7 @@ X[:, 1] = labelEncoder_X1.fit_transform(X[:, 1])
 labelEncoder_X2 = LabelEncoder()
 X[:, 2] = labelEncoder_X2.fit_transform(X[:, 2])
 
+
 # onehotencode X
-onehotencoder = OneHotEncoder(X[:, 1])
-X = onehotencoder.fit_transform(X).toarray()
+ct = ColumnTransformer([("Country", OneHotEncoder(),[1])], remainder="passthrough")) 
+ct.fit_transform(X)
