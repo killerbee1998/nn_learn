@@ -33,3 +33,4 @@ classifier.add(Dense(1, 'sigmoid'))
 
 # compile nn
 classifier.compile(optimizer='adam',loss='binary_crossentropy', metrics=['accuracy'])
+classifier.fit(x_train, y_train, batch_size=10, epochs=100)
