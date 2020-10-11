@@ -30,3 +30,6 @@ classifier = Sequential()
 classifier.add(Dense(6, 'relu', input_dim = 11))
 classifier.add(Dense(6, 'relu'))
 classifier.add(Dense(1, 'sigmoid'))
+
+# compile nn
+classifier.compile(optimizer='adam',loss='binary_crossentropy', metrics=['accuracy'])
