@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 from sklearn.compose import ColumnTransformer 
 from keras.models import Sequential
-from keras.layers import Dense
+from keras.layers import 
 
 #import dataset and select x,y
 dataset = pd.read_csv("Churn_Modelling.csv")
@@ -27,3 +27,4 @@ x_train, x_test, y_train, y_test = train_test_split(X, y, random_state = 0)
 
 # start work on nn
 classifier = Sequential()
+classifier.add(Dense(6, 'relu', input_dim = 11))
