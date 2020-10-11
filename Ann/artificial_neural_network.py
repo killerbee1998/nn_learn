@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer 
+from sklearn.metrics import confusion_matrix, accuracy_score, recall_score, precision_score
 from keras.models import Sequential
 from keras.layers import Dense
 
@@ -39,3 +40,7 @@ classifier.add(Dense(units=1, activation='sigmoid'))
 # compile nn
 classifier.compile(optimizer='adam',loss='binary_crossentropy', metrics=['accuracy'])
 classifier.fit(x_train, y_train, batch_size=32, epochs=100)
+
+# test accuracy of nn
+y_pred = classifier.predict(x_test)
+y_pred = y_pred > 0.5
