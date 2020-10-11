@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 from sklearn.compose import ColumnTransformer 
 from keras.models import Sequential
-from keras.layers import 
+from keras.layers import Dense
 
 #import dataset and select x,y
 dataset = pd.read_csv("Churn_Modelling.csv")
