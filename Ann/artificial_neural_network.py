@@ -50,4 +50,13 @@ y_pred = classifier.predict(x_test)
 y_pred = y_pred > 0.5
 
 cm = confusion_matrix(y_pred, y_test)
-print("Confusion Matrix:\n", cm)
+print("Confusion Matrix:\n", cm, "\n")
+
+ac = accuracy_score(y_pred, y_test)
+print("Accuracy Score:\n", ac, "\n")
+
+rc = recall_score(y_pred, y_test)
+print("Recall Score:\n", rc, "\n")
+
+pc = precision_score(y_pred, y_test)
+print("Precision Score:\n", pc, "\n")
