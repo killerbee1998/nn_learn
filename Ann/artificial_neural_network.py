@@ -27,10 +27,10 @@ x_train, x_test, y_train, y_test = train_test_split(X, y, random_state = 0)
 
 # start work on nn
 classifier = Sequential()
-classifier.add(Dense(6, 'relu', input_dim = 11))
-classifier.add(Dense(6, 'relu'))
-classifier.add(Dense(1, 'sigmoid'))
+classifier.add(Dense(units=6, activation='relu'))
+classifier.add(Dense(units=6, activation='relu'))
+classifier.add(Dense(units=1, activation='sigmoid'))
 
 # compile nn
 classifier.compile(optimizer='adam',loss='binary_crossentropy', metrics=['accuracy'])
-classifier.fit(x_train, y_train, batch_size=10, epochs=100)
+classifier.fit(x_train, y_train, batch_size=32, epochs=100)
