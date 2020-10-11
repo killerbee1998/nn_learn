@@ -44,3 +44,10 @@ classifier.fit(x_train, y_train, batch_size=32, epochs=100)
 # test accuracy of nn
 y_pred = classifier.predict(x_test)
 y_pred = y_pred > 0.5
+
+# test accuracy of nn
+y_pred = classifier.predict(x_test)
+y_pred = y_pred > 0.5
+
+cm = confusion_matrix(y_pred, y_test)
+print("Confusion Matrix:\n", cm)
