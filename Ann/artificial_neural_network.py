@@ -4,6 +4,8 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 from sklearn.compose import ColumnTransformer 
+from keras.models import Sequential
+from keras.layers import Dense
 
 #import dataset and select x,y
 dataset = pd.read_csv("Churn_Modelling.csv")
@@ -22,3 +24,4 @@ ct.fit_transform(X)
 
 # train and test split
 x_train, x_test, y_train, y_test = train_test_split(X, y, random_state = 0)
+
