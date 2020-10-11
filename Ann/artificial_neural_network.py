@@ -25,3 +25,5 @@ ct.fit_transform(X)
 # train and test split
 x_train, x_test, y_train, y_test = train_test_split(X, y, random_state = 0)
 
+# start work on nn
+classifier = Sequential()
