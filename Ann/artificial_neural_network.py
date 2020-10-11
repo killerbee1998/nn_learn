@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer 
 from keras.models import Sequential
 from keras.layers import Dense
@@ -24,6 +24,11 @@ ct.fit_transform(X)
 
 # train and test split
 x_train, x_test, y_train, y_test = train_test_split(X, y, random_state = 0)
+
+# standard scaling
+sc = StandardScaler()
+x_train = sc.fit_transform(x_train)
+x_test = sc.fit_transform(x_test)
 
 # start work on nn
 classifier = Sequential()
