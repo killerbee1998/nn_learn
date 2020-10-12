@@ -1,6 +1,11 @@
 # import libs
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, MaxPool2D, Flatten
+from keras.preprocessing import image_dataset_from_directory
+
+# load images
+train_datagen = image_dataset_from_directory('dataset/training_set',
+batch_size=32, image_size=(64,64))
 
 # cnn layers
 cnn = Sequential()
