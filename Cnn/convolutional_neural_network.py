@@ -10,3 +10,4 @@ batch_size=32, image_size=(64,64))
 # cnn layers
 cnn = Sequential()
 cnn.add(Conv2D(filters=64, kernel_size=3, activation='relu', input_shape=[64,64,3]))
+cnn.add(MaxPool2D(pool_size=(2,2), strides=2))
