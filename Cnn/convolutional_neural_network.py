@@ -16,3 +16,6 @@ cnn.add(Flatten())
 # cnn hidden layers
 cnn.add(Dense(units=128, activation='relu'))
 cnn.add(Dense(units=1, activation='sigmoid'))
+
+# compile cnn
+cnn.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
