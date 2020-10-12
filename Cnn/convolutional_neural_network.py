@@ -6,6 +6,9 @@ from keras.preprocessing import image_dataset_from_directory
 # load images
 train_datagen = image_dataset_from_directory('dataset/training_set',
 batch_size=32, image_size=(64,64))
+test_datagen = image_dataset_from_directory('dataset/test_set',
+batch_size=32, image_size=(64,64))
+
 
 # cnn layers
 cnn = Sequential()
@@ -19,3 +22,4 @@ cnn.add(Dense(units=1, activation='sigmoid'))
 
 # compile cnn
 cnn.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+cnn.fit()
