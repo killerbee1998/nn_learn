@@ -4,9 +4,9 @@ from keras.layers import Dense, Conv2D, MaxPool2D, Flatten
 from keras.preprocessing import image_dataset_from_directory
 
 # load images
-train_datagen = image_dataset_from_directory('dataset/training_set',
+train_set = image_dataset_from_directory('dataset/training_set',
 batch_size=32, image_size=(64,64))
-test_datagen = image_dataset_from_directory('dataset/test_set',
+test_set = image_dataset_from_directory('dataset/test_set',
 batch_size=32, image_size=(64,64))
 
 
@@ -22,4 +22,4 @@ cnn.add(Dense(units=1, activation='sigmoid'))
 
 # compile cnn
 cnn.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-cnn.fit()
+cnn.fit(x=train_set, validation_data=test_set, epochs=25)
