@@ -3,14 +3,17 @@ import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, MaxPool2D, Flatten
 from keras.preprocessing import image_dataset_from_directory
-from keras.preprocessing.image import img_to_array, load_img
+from keras.preprocessing.image import img_to_array, load_img,ImageDataGenerator
 
 # load images
-train_set = image_dataset_from_directory('dataset/training_set',
-batch_size=32, image_size=(64,64))
-test_set = image_dataset_from_directory('dataset/test_set',
-batch_size=32, image_size=(64,64))
+train_datagen = ImageDataGenerator(rescale=1./255, shear_range=0.2, zoom_range=0.2, horizontal_flip=True)
+train_set = train_datagen.flow_from_directory('dataset/training_set',
+batch_size=32, target_size=(64,64), class_mode='binary')
 
+
+test_datagen = ImageDataGenerator(rescale=1./255)
+test_set = train_datagen.flow_from_directory('dataset/test_set',
+batch_size=32, target_size=(64,64), class_mode='binary')
 
 # cnn layers
 cnn = Sequential()
