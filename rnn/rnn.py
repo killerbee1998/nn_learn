@@ -62,3 +62,12 @@ x_test = np.array(x_test)
 x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1))
 predicted_stock_price = rnn.predict(x_test)
 predicted_stock_price = sc.inverse_transform(predicted_stock_price)
+
+# Visualising the results
+plt.plot(test_ara, color = 'red', label = 'Real Google Stock Price')
+plt.plot(predicted_stock_price, color = 'blue', label = 'Predicted Google Stock Price')
+plt.title('Google Stock Price Prediction')
+plt.xlabel('Time')
+plt.ylabel('Google Stock Price')
+plt.legend()
+plt.show()
