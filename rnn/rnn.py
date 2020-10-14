@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
+from keras.models import Sequential
+from keras.layers import Dense, LSTM, Dropout
 
 # import datasets
 train_set = pd.read_csv("Google_Stock_Price_Train.csv")
@@ -28,3 +30,4 @@ y_train = np.array(y_train)
 
 # reshape
 x_train = np.reshape(x_train, (1198,x_train.shape[0], x_train.shape[1], 1 ) )
+
