@@ -18,7 +18,6 @@ sc = MinMaxScaler(feature_range=(0,1))
 train_ara_scaled = sc.fit_transform(train_ara)
 
 # create data structure with timesteps
-# create data structure with timesteps
 x_train = []
 y_train = []
 for i in range(0, 1198):
@@ -29,5 +28,9 @@ x_train = np.array(x_train)
 y_train = np.array(y_train)
 
 # reshape
-x_train = np.reshape(x_train, (1198,x_train.shape[0], x_train.shape[1], 1 ) )
+x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1 ) )
 
+# build rnn
+rnn = Sequential()
+rnn.add(LSTM(units = 50, return_sequences=True, input_shape=(x_train.shape[1], 1)))
+rnn.add(Dropout(0.2))
