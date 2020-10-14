@@ -41,3 +41,9 @@ rnn.add(Dropout(0.2))
 rnn.add(LSTM(units=50, return_sequences=False))
 rnn.add(Dropout(0.2))
 rnn.add(Dense(units=1))
+
+# compile the rnn
+rnn.compile(optimizer='adam', loss='mean_square_error')
+
+# fit the rnn
+rnn.fit(x_train, y_train, epochs=100)
