@@ -46,4 +46,4 @@ rnn.add(Dense(units=1))
 rnn.compile(optimizer='adam', loss='mean_square_error')
 
 # fit the rnn
-rnn.fit(x_train, y_train, epochs=100)
+rnn.fit(x_train, y_train, epochs=100, batch_size=32)
