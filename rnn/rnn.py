@@ -47,3 +47,18 @@ rnn.compile(optimizer='adam', loss='mean_squared_error')
 
 # fit the rnn
 rnn.fit(x_train, y_train, epochs=100, batch_size=32)
+
+# get real stock price of 2017
+dataset_total = pd.concat(train_set["Open"], test_set["Open"], axis = 0)
+inputs = dataset_total[len(dataset_total)- len(test_set)-60:].values
+inputs.reshape(-1, 1)
+inputs = sc.transform(inputs)
+
+# testing predictions
+x_test = []
+for i in range(60, 80):
+    x_test.append(inputs[i-60:i, 0])
+x_test = np.array(X_test)
+x_test = np.reshape(X_test, (x_test.shape[0], x_test.shape[1], 1))
+predicted_stock_price = rnn.predict(X_test)
+predicted_stock_price = sc.inverse_transform(predicted_stock_price)
